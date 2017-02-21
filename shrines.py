@@ -50,7 +50,6 @@ shrines = {
         'Enchanted': 'Did you forget something?',
         'Fascinating': 'You are the powerless master of fire!',
         'Hidden': 'Energy passes through your equipment.',
-        'Holy': 'Same quote as the retail version.',
         'Imposing': 'A surge of blood interrupts your thoughts.',
         'Magical': 'Growling is heard throughout the dungeon.',
         'Mysterious': 'Odd sensations.',
