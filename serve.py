@@ -39,7 +39,7 @@ def directory(path):
 
 routes = [
     url(r"/", Home, dict(pep20=pep20)),
-    url(r"/shrine.txt", Text, dict(pep20=pep20)),
+    url(r"/pep20.txt", Text, dict(pep20=pep20)),
     url(r'/(favicon\.ico)', StaticFileHandler, dict(path=directory('static')))
 ]
 
