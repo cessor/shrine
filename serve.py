@@ -7,30 +7,29 @@ from tornado.ioloop import IOLoop
 from tornado.options import define, options
 from tornado.web import Application, RequestHandler, StaticFileHandler, url
 
-from shrines import shrines
+from pep20 import pep20
 
 define('debug', default=False)
 define('port', default=8888)
 
 
 class Home(RequestHandler):
-    def initialize(self, shrines):
-        self.shrines = shrines
+    def initialize(self, pep20):
+        self.pep20 = pep20
 
     @gen.coroutine
     def get(self):
-        shrine,message = random.choice(self.shrines)
-        shrine += ' shrine'
-        self.render("index.html", shrine=shrine, message=message)
+        message = random.choice(self.pep20)
+        self.render("index.html", shrine="pep20", message=message)
 
 
 class Text(RequestHandler):
-    def initialize(self, shrines):
-        self.shrines = shrines
+    def initialize(self, pep20):
+        self.pep20 = pep20
 
     @gen.coroutine
     def get(self):
-        _, message = random.choice(self.shrines)
+        message = random.choice(self.pep20)
         self.finish(message)
 
 
@@ -39,8 +38,8 @@ def directory(path):
 
 
 routes = [
-    url(r"/", Home, dict(shrines=shrines)),
-    url(r"/shrine.txt", Text, dict(shrines=shrines)),
+    url(r"/", Home, dict(pep20=pep20)),
+    url(r"/shrine.txt", Text, dict(pep20=pep20)),
     url(r'/(favicon\.ico)', StaticFileHandler, dict(path=directory('static')))
 ]
 
