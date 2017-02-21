@@ -45,6 +45,9 @@ routes = [
 
 
 def configure():
+
+    options.parse_command_line()
+
     settings = dict(
         debug=options.debug,
         compress_response=True,
