@@ -62,3 +62,8 @@ shrines = {
 
 flat = [shrines.items() for game, shrines in shrines.items()]
 shrines = list(itertools.chain(*flat))
+
+if __name__ == "__main__":
+    import random
+    _, dictum = random.choice(shrines)
+    print(dictum)
