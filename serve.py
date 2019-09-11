@@ -19,8 +19,7 @@ class Home(RequestHandler):
 
     @gen.coroutine
     def get(self):
-        shrine,message = random.choice(self.shrines)
-        shrine += ' shrine'
+        shrine = message = random.choice(self.shrines)
         self.render("index.html", shrine=shrine, message=message)
 
 
